@@ -1,0 +1,81 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "originX": 0,
+    "originY": 0,
+    "zoomLevel": 1,
+    "show": 431,
+    "database": 8,
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 4,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "columnOrder": [1, 2, 4, 8, 16, 32, 64],
+    "maxWidthComment": -1,
+    "lockSettings": 63
+  },
+  "doc": {
+    "tableIds": ["demo_customer", "demo_order", "demo_order_line"],
+    "relationshipIds": ["demo_customer_order", "demo_order_order_line_rel"]
+  },
+  "collections": {
+    "tableEntities": {
+      "demo_customer": {
+        "id": "demo_customer",
+        "name": "CUSTOMER",
+        "comment": "고객",
+        "columnIds": ["customer_id", "customer_name", "customer_email"],
+        "ui": {"x": 80, "y": 110}
+      },
+      "demo_order": {
+        "id": "demo_order",
+        "name": "SALES_ORDER",
+        "comment": "주문",
+        "columnIds": ["order_id", "order_customer_id", "order_date", "order_status"],
+        "ui": {"x": 470, "y": 110}
+      },
+      "demo_order_line": {
+        "id": "demo_order_line",
+        "name": "ORDER_LINE",
+        "comment": "주문 항목",
+        "columnIds": ["line_id", "line_order_id", "product_name", "quantity"],
+        "ui": {"x": 860, "y": 110}
+      }
+    },
+    "tableColumnEntities": {
+      "customer_id": {"id": "customer_id", "tableId": "demo_customer", "name": "CUSTOMER_ID", "comment": "고객 ID", "dataType": "NUMBER", "options": 10},
+      "customer_name": {"id": "customer_name", "tableId": "demo_customer", "name": "CUSTOMER_NAME", "comment": "고객 이름", "dataType": "VARCHAR2(100)", "options": 0},
+      "customer_email": {"id": "customer_email", "tableId": "demo_customer", "name": "EMAIL", "comment": "이메일", "dataType": "VARCHAR2(200)", "options": 0},
+      "order_id": {"id": "order_id", "tableId": "demo_order", "name": "ORDER_ID", "comment": "주문 ID", "dataType": "NUMBER", "options": 10},
+      "order_customer_id": {"id": "order_customer_id", "tableId": "demo_order", "name": "CUSTOMER_ID", "comment": "고객 ID", "dataType": "NUMBER", "options": 0},
+      "order_date": {"id": "order_date", "tableId": "demo_order", "name": "ORDER_DATE", "comment": "주문일", "dataType": "DATE", "options": 0},
+      "order_status": {"id": "order_status", "tableId": "demo_order", "name": "STATUS", "comment": "상태", "dataType": "VARCHAR2(20)", "options": 0},
+      "line_id": {"id": "line_id", "tableId": "demo_order_line", "name": "LINE_ID", "comment": "항목 ID", "dataType": "NUMBER", "options": 10},
+      "line_order_id": {"id": "line_order_id", "tableId": "demo_order_line", "name": "ORDER_ID", "comment": "주문 ID", "dataType": "NUMBER", "options": 0},
+      "product_name": {"id": "product_name", "tableId": "demo_order_line", "name": "PRODUCT_NAME", "comment": "상품 이름", "dataType": "VARCHAR2(100)", "options": 0},
+      "quantity": {"id": "quantity", "tableId": "demo_order_line", "name": "QUANTITY", "comment": "수량", "dataType": "NUMBER", "options": 0}
+    },
+    "relationshipEntities": {
+      "demo_customer_order": {
+        "id": "demo_customer_order",
+        "relationshipType": 8,
+        "onDelete": 1,
+        "onUpdate": 1,
+        "start": {"tableId": "demo_customer", "columnIds": ["customer_id"]},
+        "end": {"tableId": "demo_order", "columnIds": ["order_customer_id"]}
+      },
+      "demo_order_order_line_rel": {
+        "id": "demo_order_order_line_rel",
+        "relationshipType": 8,
+        "onDelete": 1,
+        "onUpdate": 1,
+        "start": {"tableId": "demo_order", "columnIds": ["order_id"]},
+        "end": {"tableId": "demo_order_line", "columnIds": ["line_order_id"]}
+      }
+    }
+  }
+}
