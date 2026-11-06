@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub ERD Viewer",
+  "version": "1.0.0",
+  "description": "GitHub의 ERD JSON 파일을 읽기 전용 ERD로 새 탭에서 표시합니다.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
