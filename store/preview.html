@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>demo.vuerd.json · ERD 보기</title>
+    <link rel="stylesheet" href="../viewer.css">
+  </head>
+  <body>
+    <header>
+      <strong id="filename">demo.vuerd.json</strong>
+      <span id="status" role="status">샘플 ERD</span>
+      <a id="source-link" href="https://github.com/KMW-CL/github-erd-viewer/blob/codex/chrome-store-private/store/demo.vuerd.json" target="_blank" rel="noopener">GitHub 원본 열기</a>
+    </header>
+    <erd-viewer></erd-viewer>
+    <script src="../vendor/erd-viewer.umd.js"></script>
+    <script>
+      (async () => {
+        const viewer = document.querySelector("erd-viewer");
+        await viewer.setLocale("ko-KR");
+        const response = await fetch("demo.vuerd.json");
+        if (!response.ok) throw new Error(`샘플 파일을 열 수 없습니다: ${response.status}`);
+        viewer.value = await response.text();
+      })().catch((error) => {
+        document.querySelector("#status").textContent = String(error);
+      });
+    </script>
+  </body>
+</html>
