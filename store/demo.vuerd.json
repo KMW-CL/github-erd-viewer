@@ -4,7 +4,7 @@
   "settings": {
     "originX": 0,
     "originY": 0,
-    "zoomLevel": 1,
+    "zoomLevel": 0.7,
     "show": 431,
     "database": 8,
     "databaseName": "",
@@ -36,14 +36,14 @@
         "name": "SALES_ORDER",
         "comment": "주문",
         "columnIds": ["order_id", "order_customer_id", "order_date", "order_status"],
-        "ui": {"x": 470, "y": 110}
+        "ui": {"x": 680, "y": 110}
       },
       "demo_order_line": {
         "id": "demo_order_line",
         "name": "ORDER_LINE",
         "comment": "주문 항목",
         "columnIds": ["line_id", "line_order_id", "product_name", "quantity"],
-        "ui": {"x": 860, "y": 110}
+        "ui": {"x": 1280, "y": 110}
       }
     },
     "tableColumnEntities": {
