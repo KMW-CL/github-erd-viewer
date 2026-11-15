@@ -2,7 +2,13 @@
 
 GitHub의 `.vuerd.json` 또는 `.erd.json` 파일을 ERD Editor의 읽기 전용 뷰어로 보여주는 Chrome/Edge 확장 기능입니다. GitHub 원본 탭은 그대로 두고 ERD를 새 탭에서 엽니다.
 
-## 처음 설치하기
+## Chrome 웹 스토어에서 설치하기
+
+[GitHub ERD Viewer 스토어 페이지](https://chromewebstore.google.com/detail/github-erd-viewer/kgmnlgkokpbmbafbmkpgkoacamffdoad)에서 **Chrome에 추가**를 누릅니다. 스토어로 설치한 버전은 Chrome이 자동으로 업데이트합니다.
+
+## ZIP으로 직접 설치하기
+
+아래 v1.0.0 ZIP은 기존 수동 설치용입니다. 영어 화면은 Chrome 웹 스토어의 v1.0.2 업데이트가 승인된 뒤 사용할 수 있습니다.
 
 1. [v1.0.0 설치용 ZIP](https://github.com/KMW-CL/github-erd-viewer/releases/download/v1.0.0/github-erd-viewer-v1.0.0.zip)을 다운로드합니다. [릴리스 페이지](https://github.com/KMW-CL/github-erd-viewer/releases/tag/v1.0.0)의 **Assets**에서도 같은 파일을 받을 수 있습니다.
 2. ZIP의 압축을 풉니다. 압축을 풀면 `github-erd-viewer` 폴더가 나옵니다. 그 안에 `manifest.json`이 있는지 확인합니다.
@@ -20,7 +26,7 @@ GitHub의 `.vuerd.json` 또는 `.erd.json` 파일을 ERD Editor의 읽기 전용
 
 ## 새 버전으로 업데이트하기
 
-새 버전의 ZIP을 받아 압축을 풀고, 기존 확장 기능 폴더의 파일을 새 파일로 바꾼 뒤 `chrome://extensions`에서 **GitHub ERD Viewer** 카드의 **새로고침** 버튼을 누릅니다. 마지막으로 GitHub 파일 페이지도 새로고침합니다.
+스토어에서 설치했다면 Chrome이 새 버전을 자동으로 업데이트합니다. ZIP으로 직접 설치했다면 새 버전의 ZIP을 받아 압축을 풀고, 기존 확장 기능 폴더의 파일을 새 파일로 바꾼 뒤 `chrome://extensions`에서 **GitHub ERD Viewer** 카드의 **새로고침** 버튼을 누릅니다. 마지막으로 GitHub 파일 페이지도 새로고침합니다.
 
 ## 동작과 범위
 
