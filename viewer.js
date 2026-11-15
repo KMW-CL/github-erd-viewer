@@ -6,7 +6,7 @@ const sourceLink = document.querySelector("#source-link");
 (async () => {
   const key = decodeURIComponent(location.hash.slice(1));
   if (!key.startsWith("github_erd_document_")) {
-    status.textContent = "GitHub 파일 화면에서 ERD 새 탭에서 보기를 누르세요.";
+    status.textContent = "Open an ERD JSON file on GitHub and click Open ERD in new tab.";
     return;
   }
 
@@ -14,19 +14,19 @@ const sourceLink = document.querySelector("#source-link");
     const stored = await chrome.storage.session.get(key);
     const documentValue = stored[key];
     if (!documentValue || typeof documentValue.text !== "string") {
-      throw new Error("ERD 데이터를 찾을 수 없습니다. GitHub 파일 화면에서 다시 열어 주세요.");
+      throw new Error("ERD data was not found. Open it again from the GitHub file page.");
     }
 
     filename.textContent = documentValue.filename;
-    document.title = `${documentValue.filename} · ERD 보기`;
+    document.title = `${documentValue.filename} · ERD Viewer`;
     if (typeof documentValue.sourceUrl === "string" && documentValue.sourceUrl.startsWith("https://github.com/")) {
       sourceLink.href = documentValue.sourceUrl;
       sourceLink.hidden = false;
     }
 
-    await viewer.setLocale("ko-KR");
+    await viewer.setLocale("en");
     viewer.value = documentValue.text;
-    status.textContent = "읽기 전용";
+    status.textContent = "Read-only";
   } catch (error) {
     status.textContent = String(error);
     console.error("GitHub ERD Viewer:", error);

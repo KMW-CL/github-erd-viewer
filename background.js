@@ -5,10 +5,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   (async () => {
     if (typeof message.text !== "string" || !message.text.trim()) {
-      throw new Error("ERD 파일 내용이 없습니다.");
+      throw new Error("The ERD file is empty.");
     }
     if (typeof sender.url !== "string" || !sender.url.startsWith("https://github.com/")) {
-      throw new Error("GitHub 파일 화면에서만 열 수 있습니다.");
+      throw new Error("Open the ERD from a GitHub file page.");
     }
 
     const key = DOCUMENT_PREFIX + crypto.randomUUID();

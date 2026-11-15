@@ -35,7 +35,7 @@
     const text = getDocumentText();
     if (!text || !button) return;
     button.disabled = true;
-    button.textContent = "ERD 탭 여는 중…";
+    button.textContent = "Opening ERD…";
     try {
       let filename = location.pathname.split("/").at(-1) || "ERD";
       try { filename = decodeURIComponent(filename); } catch { /* Keep the encoded name. */ }
@@ -44,14 +44,14 @@
         text,
         filename
       });
-      if (!response?.ok) throw new Error(response?.error || "새 탭을 열 수 없습니다.");
+      if (!response?.ok) throw new Error(response?.error || "Could not open a new tab.");
     } catch (error) {
       console.error("GitHub ERD Viewer:", error);
-      button.textContent = "다시 시도: ERD 새 탭에서 보기";
+      button.textContent = "Retry: Open ERD in new tab";
       button.title = String(error);
     } finally {
       button.disabled = false;
-      if (button.textContent === "ERD 탭 여는 중…") button.textContent = "ERD 새 탭에서 보기";
+      if (button.textContent === "Opening ERD…") button.textContent = "Open ERD in new tab";
     }
   }
 
@@ -73,7 +73,7 @@
     button = document.createElement("button");
     button.id = "github-erd-viewer-open";
     button.type = "button";
-    button.textContent = "ERD 새 탭에서 보기";
+    button.textContent = "Open ERD in new tab";
     button.addEventListener("click", openViewer);
     document.body.append(button);
   }
